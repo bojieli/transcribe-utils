@@ -116,18 +116,30 @@ The script now supports using domain-specific context documents to improve the a
 
 ### How to Use Context Documents
 
-1. Create a text file containing the domain-specific jargon and terminology:
+1. Create a text file containing the domain-specific jargon, terminology and background of the talk (see `context.txt` in this repo for an example):
    ```
-   # Example domain_jargon.txt for medical terminology
-   心肌梗塞 - Myocardial infarction
-   冠状动脉搭桥术 - Coronary artery bypass grafting
-   降钙素原 - Procalcitonin
+   直播主题：AI Agent，注定爆发？！
+
+   时间：2025 年 3 月 13 日 20:00——22:00
+   方式：极客公园微信视频号「今夜科技谈」直播（连麦）
+
+   直播嘉宾：
+   •	靖宇｜极客公园 副主编
+   •	李博杰｜PINE AI 首席科学家
+   •	宛辰｜极客公园 记者
+
+   领域词汇表：
+   Manus
+   OpenAI Operator
+   OpenAI Deep Research
+   Anthropic
+   Claude 3.7 Sonnet
    ...
    ```
 
 2. Pass the context document to the script:
    ```
-   python transcript_generator.py interview.mp3 --context domain_jargon.txt
+   python transcript_generator.py interview.mp3 --context context.txt
    ```
 
 3. Claude will use this information to ensure that specialized terminology is correctly preserved and used in the revised transcript.
