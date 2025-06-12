@@ -360,7 +360,8 @@ Pay special attention to the following domain-specific jargon and terminology, e
     system_prompt = f"{base_system_prompt} {position_context} {task_description} {position_info}{domain_context}"
     
     # Prepare the user prompt
-    user_prompt = f"请根据以下原始中文转录内容，进行整理和修改，使其成为一篇组织良好的访谈稿片段。保持原意，但可以修正转录中的词句、语法错误，添加正确的标点符号，提高语言流畅度，并使内容更加连贯和有条理。请记住这是一篇访谈稿的片段，需要保持对话的连贯性，保持内容原意，不要变成内容总结，不要添加标题。访谈稿的中文和英文单词之间需要有空格。被访者、主持人的名字在背景介绍材料中有，他们的名字需要用粗体显示。"
+    #user_prompt = f"请根据以下原始中文转录内容，进行整理和修改，使其成为一篇组织良好的访谈稿片段。保持原意，但可以修正转录中的词句、语法错误，添加正确的标点符号，提高语言流畅度，并使内容更加连贯和有条理。请记住这是一篇访谈稿的片段，需要保持对话的连贯性，保持内容原意，不要变成内容总结，不要添加标题。访谈稿的中文和英文单词之间需要有空格。被访者、主持人的名字在背景介绍材料中有，他们的名字需要用粗体显示。"
+    user_prompt = f"请根据以下原始中文转录内容，进行整理和修改，使其成为一篇组织良好的访谈稿片段。保持原意，但可以修正转录中的词句、语法错误，添加正确的标点符号，提高语言流畅度，并使内容更加连贯和有条理。请记住这是一篇访谈稿的片段，需要保持对话的连贯性，保持内容原意，不要变成内容总结，不要添加标题。访谈稿的中文和英文单词之间需要有空格。"
     
     if context_content:
         user_prompt += f"\n\n请确保正确使用与保留领域内的专业术语和行话。"
@@ -373,7 +374,7 @@ Pay special attention to the following domain-specific jargon and terminology, e
         try:
             # Call Claude API with thinking enabled
             response = anthropic_client.messages.create(
-                model="claude-3-7-sonnet-20250219",
+                model="claude-opus-4-20250514",
                 max_tokens=4000,
                 system=system_prompt,
                 messages=[
