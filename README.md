@@ -253,4 +253,108 @@ This will:
 
 ## License
 
-[MIT License](LICENSE) 
+[MIT License](LICENSE)
+
+# Transcribe Utils
+
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Transcript Generation](#transcript-generation)
+  - [PDF to PNG Conversion](#pdf-to-png-conversion)
+- [Configuration](#configuration)
+- [File Structure](#file-structure)
+- [Contributing](#contributing)
+
+## Overview
+
+This repository contains utilities for transcription and document processing tasks.
+
+## Features
+
+### Transcript Generation
+- Audio transcription using AI services
+- Progress tracking with JSON state files
+- Support for various audio formats
+
+### PDF to PNG Conversion
+- Export all pages of a PDF to PNG images
+- Configurable resolution (default: 1920x1080)
+- High-quality image output with precise scaling
+- Maintains aspect ratio or exact dimensions
+- Command-line interface with flexible options
+
+## Installation
+
+1. Clone this repository:
+```bash
+git clone <repository-url>
+cd transcribe-utils
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+### Transcript Generation
+
+Use the `transcript_generator.py` script for audio transcription tasks.
+
+### PDF to PNG Conversion
+
+The `pdf_to_png.py` script converts PDF documents to high-quality PNG images.
+
+#### Basic Usage
+
+```bash
+# Convert all pages to 1920x1080 PNG images
+python pdf_to_png.py document.pdf
+
+# Specify output directory
+python pdf_to_png.py document.pdf output_folder
+
+# Custom resolution
+python pdf_to_png.py document.pdf --width 2560 --height 1440
+
+# Show PDF information
+python pdf_to_png.py document.pdf --info
+```
+
+#### Features
+
+- **High-Quality Output**: Uses PyMuPDF for precise rendering control
+- **Flexible Resolution**: Default 1920x1080 or custom dimensions
+- **Smart Scaling**: Maintains aspect ratio or exact dimensions
+- **Batch Processing**: Processes all pages automatically
+- **Error Handling**: Continues processing if individual pages fail
+- **Progress Tracking**: Shows conversion progress in real-time
+
+#### Requirements
+
+- **PyMuPDF**: For PDF processing and rendering
+- **Pillow**: For advanced image processing and PNG optimization
+
+#### Output
+
+- PNG files named `page_0001.png`, `page_0002.png`, etc.
+- Saved to `{pdf_name}_pages/` directory by default
+- High-quality PNG with optimization
+
+#### Examples
+
+```bash
+# Basic conversion
+python pdf_to_png.py presentation.pdf
+# Output: presentation_pages/page_0001.png, page_0002.png, ...
+
+# Custom output directory and resolution  
+python pdf_to_png.py document.pdf slides --width 3840 --height 2160
+
+# Get PDF information first
+python pdf_to_png.py document.pdf --info
+``` 
